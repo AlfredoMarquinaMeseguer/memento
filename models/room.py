@@ -8,8 +8,8 @@ class Room(models.Model):
     _name = 'memento.room'
     _description = 'Room Booking'
 
-    _parent_store = True
-    _parent_name = "parent_id"  # optional if field is 'parent_id'
+    # _parent_store = True
+    # _parent_name = "parent_id"  # optional if field is 'parent_id'
 
     FREE = 'free'
     BOOKED = 'booked'

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='client_info_action' model='ir.actions.act_window'>
+        <field name="name">Client Info</field>
+        <field name="res_model">memento.client.info</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
+    </record>
+
+    <record id='thanatory_book_calendar_action' model='ir.actions.act_window'>
+        <field name="name">Thanatory Clients</field>
+        <field name="res_model">memento.client.info</field>
+        <field name="view_mode">calendar</field>
+    </record>
+
+
+    <menuitem name="Memento Mori" id="thanatory_base_menu" />
+    <menuitem name="Clients" id="thanatory_client_menu" parent="thanatory_base_menu" action="client_info_action"/>
+    <menuitem name="Calendar" id="thanatory_book_menu_calendar" parent="thanatory_base_menu" action="thanatory_book_calendar_action"/>
+
+    <!-- Calendar View -->
+    <record id="client_info_view_calendar" model="ir.ui.view">
+        <field name="name">Thanatory Bookings Calendar</field>
+        <field name="model">memento.client.info</field>
+        <field name="arch" type="xml">
+            <calendar string="Release Calendar" date_start="start_booking" date_stop="end_booking" mode="month">
+                <field name="name"/>
+                <!-- Poner numero de la sala si da tiempo -->
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="client_info_view_kanban" model="ir.ui.view">
+        <field name="name">Client Kanban</field>
+        <field name="model">memento.client.info</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="state" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="oe_kanban_card">
+                                    <div>
+                                        <i class="fa fa-id-card"/>
+                                        <b>
+                                            <field name="name" />
+                                        </b>
+                                    </div>
+                                    <div class="text-muted">
+                                        <i class="fa fa-book"/>
+                                        <field name="category" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>    
+
+    <!-- Form View -->
+    <record id="client_info_view_form" model="ir.ui.view">
+        <field name="name">Client Info Form</field>
+        <field name="model">memento.client.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="collect" string="Collect" type="object"/>
+                    <button name="start_thanatos"  string="Start Thanatopraxy" type="object"/>
+                    <button name="finish_thanatos"  string="Finish Thanatopraxy" type="object"/>
+                    <button name="assign_room"  string="Assign Room" type="object"/>
+                    <button name="finish_velatory"  string="Finish Velatory" type="object"/>
+                    <button name="ship"  string="Ship" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="hired_services" widget="many2many_tags"/>
+                        <field name="thantopraxy_notes"/>
+                    </group>
+                    <group>
+                        <field name="category"/>
+                        <field name="representative"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="room"/>
+                    <field name="start_booking"/>
+                    <field name="end_booking"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="client_info_view_tree" model="ir.ui.view">
+        <field name="name">Client Info</field>
+        <field name="model">memento.client.info</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="client_info_view_search" model="ir.ui.view">
+        <field name="name">Client Info Search</field>
+        <field name="model">memento.client.info</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="state"/>
+                <filter string="Gold clients" name="gold_clients" domain="[('category','=','gold')]"/>
+                <filter string="Current clients" name="current_clients" domain="[('state','!=','shipped')]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

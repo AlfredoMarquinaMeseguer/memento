@@ -17,9 +17,6 @@ class ClientInfo(models.Model):
     IN_ROOM = 'in_room'
     TO_SHIP = 'to_ship'
     SHIPPED = 'shipped'
-    
-    _parent_store = True
-    _parent_name = "parent_id"  # optional if field is 'parent_id'
 
     name = fields.Char(required=True, string="Name")
 
@@ -45,7 +42,7 @@ class ClientInfo(models.Model):
         default=COLLECT
     )
 
-    #Borrar si se vuelve muy complicado
+    # Borrar si se vuelve muy complicado
     hired_services = fields.Many2many(
         'product.product',
         string='services',
@@ -54,18 +51,18 @@ class ClientInfo(models.Model):
     )
 
     representative = fields.One2many(
-        'representative',
+        'memento.client.representative',
         'represented_client',
         string='representative',
         ondelete='restrict',
         required=True,
         index=True
     )
-       
+
     room = fields.Many2one(
         'memento.room',
         string='Room',
-        ondelete='retrcit',
+        ondelete='restrict',
         index=True
     )
     start_booking = fields.Datetime('Beginning of the Booking')
@@ -151,19 +148,6 @@ class ClientInfo(models.Model):
         """
         self.change_state(ClientInfo.SHIPPED)
 
-    # def log_all_library_members(self):
-    #     # This is an empty recordset of model library.member
-    #     library_member_model = self.env['library.member']
-    #     all_members = library_member_model.search([])
-    #     print("ALL MEMBERS:", all_members)
-    #     return True
-
-    # @api.constrains('parent_id')
-    # def _check_hierarchy(self):
-    #     if not self._check_recursion():
-    #         raise models.ValidationError(
-    #             'Error! You cannot create recursive categories.')
-
 
 class Representative(models.Model):
     """Representante del cliente
@@ -171,17 +155,17 @@ class Representative(models.Model):
     """
     _name = 'memento.client.representative'
     _inherits = {'res.partner': 'partner_id'}
-    _description = "Library member"
+    _description = "Client representative"
 
     required_documents = fields.One2many(
-        'memento.docuement',
+        'memento.document',
         'client_documents',
         string='Required Documents',
         ondelete='restrict',
         index=True
     )
     represented_client = fields.Many2one(
-        'client.info',
+        'memento.client.info',
         string='Represented Client',
         ondelete='restrict',
         required=True,
@@ -198,5 +182,5 @@ class Document(models.Model):
 
     client_documents = fields.Many2one(
         'memento.document',
-        string="Document"
+        string='Document'
     )

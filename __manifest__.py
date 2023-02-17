@@ -3,8 +3,7 @@
     'name': "Memento Mori",  # Module title
     'summary': "Manage bodies easily",  # Module subtitle phrase
     'description': """
-        Manage cadavers easily
-        ======================
+        Manage cadavers easily        
         Description related to thanatory.
     """,  # Supports reStructuredText(RST) format
     'author': "Alfredo",
