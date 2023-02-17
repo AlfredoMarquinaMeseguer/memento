@@ -7,7 +7,7 @@ from odoo.tools.translate import _
 class ClientInfo(models.Model):
     _name = 'memento.client.info'
     _description = 'Client Info'
-    
+
     """Constants
     """
     COLLECT = 'to_collect'
@@ -17,7 +17,7 @@ class ClientInfo(models.Model):
     IN_ROOM = 'in_room'
     TO_SHIP = 'to_ship'
     SHIPPED = 'shipped'
-
+    
     _parent_store = True
     _parent_name = "parent_id"  # optional if field is 'parent_id'
 
@@ -45,6 +45,7 @@ class ClientInfo(models.Model):
         default=COLLECT
     )
 
+    #Borrar si se vuelve muy complicado
     hired_services = fields.Many2many(
         'product.product',
         string='services',
@@ -60,8 +61,15 @@ class ClientInfo(models.Model):
         required=True,
         index=True
     )
-
-    parent_path = fields.Char(index=True)
+       
+    room = fields.Many2one(
+        'memento.room',
+        string='Room',
+        ondelete='retrcit',
+        index=True
+    )
+    start_booking = fields.Datetime('Beginning of the Booking')
+    end_booking = fields.Datetime('End of the Booking')
 
     @api.model
     def allow_transition(self, current_state: str, new_state: str) -> bool:
@@ -138,35 +146,39 @@ class ClientInfo(models.Model):
 
     def ship(self):
         """Changes the state of the client to SHIPPED        
-        
+
         Used when the body has left the thanatory
         """
         self.change_state(ClientInfo.SHIPPED)
 
-    def log_all_library_members(self):
-        # This is an empty recordset of model library.member
-        library_member_model = self.env['library.member']
-        all_members = library_member_model.search([])
-        print("ALL MEMBERS:", all_members)
-        return True
+    # def log_all_library_members(self):
+    #     # This is an empty recordset of model library.member
+    #     library_member_model = self.env['library.member']
+    #     all_members = library_member_model.search([])
+    #     print("ALL MEMBERS:", all_members)
+    #     return True
 
-    @api.constrains('parent_id')
-    def _check_hierarchy(self):
-        if not self._check_recursion():
-            raise models.ValidationError(
-                'Error! You cannot create recursive categories.')
+    # @api.constrains('parent_id')
+    # def _check_hierarchy(self):
+    #     if not self._check_recursion():
+    #         raise models.ValidationError(
+    #             'Error! You cannot create recursive categories.')
 
 
 class Representative(models.Model):
     """Representante del cliente
-    
+
     """
     _name = 'memento.client.representative'
     _inherits = {'res.partner': 'partner_id'}
     _description = "Library member"
-    
+
     required_documents = fields.One2many(
-        
+        'memento.docuement',
+        'client_documents',
+        string='Required Documents',
+        ondelete='restrict',
+        index=True
     )
     represented_client = fields.Many2one(
         'client.info',
@@ -175,14 +187,16 @@ class Representative(models.Model):
         required=True,
         index=True
     )
-    
+
+
 class Document(models.Model):
 
-    _name = 'memento.documents'
-    _description ='Documents related'
-    
+    _name = 'memento.document'
+    _description = 'Documents related'
+
     name = fields.Char('Document Name')
-    
+
     client_documents = fields.Many2one(
-        
+        'memento.document',
+        string="Document"
     )
