@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='memento_document_action' model='ir.actions.act_window'>
+        <field name="name">Documents</field>
+        <field name="res_model">memento.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Documents" id="thanatory_document_menu" parent="thanatory_base_menu" action="memento_document_action"/>
+
+    <!-- Form View -->
+    <record id="memento_document_view_form" model="ir.ui.view">
+        <field name="name">Memento Categories Form</field>
+        <field name="model">memento.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="route" modifiers="{}"/>
+                        <field name="client" can_create="true" can_write="true" modifiers="{}"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="memento_document_view_tree" model="ir.ui.view">
+        <field name="name">memento Book List</field>
+        <field name="model">memento.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

@@ -12,7 +12,6 @@
                 <page name="client_info" string="Client Info">
                 <group>
                     <field name="represented_client"/>
-                    <field name="required_documents"/>
                 </group>
                 </page>
             </page>

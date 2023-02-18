@@ -15,7 +15,10 @@
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
-        'views/client.xml'
+        'views/client.xml',
+        'views/representative.xml',
+        'views/documents.xml',
+        'reports/client_info_report.xml',
         #'views/library_book_categ.xml'
     ],
     # This demo data files will be loaded if db initialize with demo data (commented becaues file is not added in this example)

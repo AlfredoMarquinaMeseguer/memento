@@ -1,0 +1,358 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* memento
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20221103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-18 13:26+0000\n"
+"PO-Revision-Date: 2023-02-18 13:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: memento
+#: model:res.groups,name:memento.group_administrative
+msgid "Administratives"
+msgstr "Administrativos"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_form
+msgid "Assign Room"
+msgstr "Asignar Habitación"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__to_ship
+msgid "Awaiting Shipment"
+msgstr "Esperando Envío"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__pre_thanatos
+msgid "Awaiting Thanatopraxy"
+msgstr "Esperando Tanatopraxia"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__category__base
+msgid "Base Plan"
+msgstr "Plan Básico"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__start_booking
+msgid "Beginning of the Booking"
+msgstr "Comienzo de la Reserva"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_room__state__booked
+msgid "Booked"
+msgstr "Reservado"
+
+#. module: memento
+#: model:ir.actions.act_window,name:memento.thanatory_book_calendar_action
+#: model:ir.model.fields,field_description:memento.field_memento_room__booking
+msgid "Bookings"
+msgstr "Reservas"
+
+#. module: memento
+#: model:ir.ui.menu,name:memento.thanatory_book_menu_calendar
+msgid "Calendar"
+msgstr "Calendario"
+
+#. module: memento
+#: model:ir.model,name:memento.model_memento_client_info
+msgid "Client Info"
+msgstr "Info de Cliente"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.report_client_info_view
+msgid "Client:"
+msgstr "Cliente:"
+
+#. module: memento
+#: model:ir.ui.menu,name:memento.thanatory_client_menu
+#: model_terms:ir.ui.view,arch_db:memento.report_client_info_view
+msgid "Clients"
+msgstr "Clientes"
+
+#. module: memento
+#: model:ir.actions.report,name:memento.report_client_info
+msgid "Clients Report"
+msgstr "Reportes de Clientes"
+
+#. module: memento
+#: model:ir.actions.report,name:memento.report_client_info_pdf
+msgid "Clients Report (PDF)"
+msgstr "Reportes de Clientes (PDF)"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_form
+msgid "Collect"
+msgstr "Recoger"
+
+#. module: memento
+#: model:ir.model,name:memento.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__create_uid
+#: model:ir.model.fields,field_description:memento.field_memento_document__create_uid
+#: model:ir.model.fields,field_description:memento.field_memento_room__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__create_date
+#: model:ir.model.fields,field_description:memento.field_memento_document__create_date
+#: model:ir.model.fields,field_description:memento.field_memento_room__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_search
+msgid "Current clients"
+msgstr "Clientes actuales"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_room__state__dirty
+msgid "Dirty"
+msgstr "Sucio"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__display_name
+#: model:ir.model.fields,field_description:memento.field_memento_document__display_name
+#: model:ir.model.fields,field_description:memento.field_memento_room__display_name
+msgid "Display Name"
+msgstr "Nombre para Mostrar"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_document__description
+msgid "Document Description"
+msgstr "Descripción del Documento"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_document__name
+msgid "Document Name"
+msgstr "Nombre del Documento"
+
+#. module: memento
+#: model:ir.model,name:memento.model_memento_document
+msgid "Documents related"
+msgstr "Documentos Relacionados"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__end_booking
+msgid "End of the Booking"
+msgstr "Fin de la Reserva"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_form
+msgid "Finish Thanatopraxy"
+msgstr "Terminar Tanatopraxia"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_form
+msgid "Finish Velatory"
+msgstr "Terminar Vel"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_room__state__free
+msgid "Free"
+msgstr "Libre"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__category__gold
+msgid "Gold Plan"
+msgstr "Plan Dorado"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_search
+msgid "Gold clients"
+msgstr "Clientes Dorados"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__id
+#: model:ir.model.fields,field_description:memento.field_memento_document__id
+#: model:ir.model.fields,field_description:memento.field_memento_room__id
+msgid "ID"
+msgstr "ID"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__in_room
+msgid "In Room"
+msgstr "En Sala"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__in_thanatos
+msgid "In Thanatopraxy"
+msgstr "En Tanatopraxia"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__thantopraxy_notes
+msgid "Information for the thanatopraxor"
+msgstr "Información para la Tanatopraxia"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__category__insurance
+msgid "Insurance Plan"
+msgstr "Plan de Seguro"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info____last_update
+#: model:ir.model.fields,field_description:memento.field_memento_document____last_update
+#: model:ir.model.fields,field_description:memento.field_memento_room____last_update
+msgid "Last Modified on"
+msgstr "Última modificaión en"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__write_uid
+#: model:ir.model.fields,field_description:memento.field_memento_document__write_uid
+#: model:ir.model.fields,field_description:memento.field_memento_room__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__write_date
+#: model:ir.model.fields,field_description:memento.field_memento_document__write_date
+#: model:ir.model.fields,field_description:memento.field_memento_room__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_room__state__maintenance
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#. module: memento
+#: model:ir.ui.menu,name:memento.thanatory_base_menu
+msgid "Memento Mori"
+msgstr "Memento Mori"
+
+#. module: memento
+#: code:addons/memento/models/client_info.py:0
+#, python-format
+msgid "Moving from %s to %s is not allowd"
+msgstr "No se permite pasar de %s a %s"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__name
+#: model:ir.model.fields,field_description:memento.field_memento_room__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_room__state__occupied
+msgid "Occupied"
+msgstr "Ocupado"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_calendar
+msgid "Release Calendar"
+msgstr "Calendario de Salida"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__representative_id
+msgid "Representative"
+msgstr "Representante"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_library_member__represented_client
+#: model:ir.model.fields,field_description:memento.field_res_partner__represented_client
+#: model:ir.model.fields,field_description:memento.field_res_users__represented_client
+msgid "Represented Client"
+msgstr "Cliente representado"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__required_documents
+#: model:ir.model.fields,field_description:memento.field_memento_document__client
+msgid "Required Documents"
+msgstr "Documentos requeridos"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__room_id
+msgid "Room"
+msgstr "Habitación"
+
+#. module: memento
+#: model:ir.model,name:memento.model_memento_room
+msgid "Room Booking"
+msgstr "Reserva de Sala"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_room__room_number
+msgid "Room number"
+msgstr "Número de Sala"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__no_room
+msgid "Room to be Asigned"
+msgstr "Habitación por Asignar"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_document__route
+msgid "Route To Document File"
+msgstr "Ruta al archivo de documento"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_form
+msgid "Ship"
+msgstr "Enviar"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__shipped
+msgid "Shipped"
+msgstr "Enviado"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__category__silver
+msgid "Silver Plan"
+msgstr "Plan Plata"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.client_info_view_form
+msgid "Start Thanatopraxy"
+msgstr "Iniciar Tanatopraxia"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_room__state
+msgid "State"
+msgstr "Estado"
+
+#. module: memento
+#: model:ir.actions.act_window,name:memento.client_info_action
+msgid "Thanatory Clients"
+msgstr "Clientes Tanatorio"
+
+#. module: memento
+#: model_terms:ir.ui.view,arch_db:memento.report_client_info_view
+msgid "Thanatos description:"
+msgstr "Descripción de Tanatopraxia:"
+
+#. module: memento
+#: model:ir.model.fields.selection,name:memento.selection__memento_client_info__state__to_collect
+msgid "To Collect"
+msgstr "Por recoger"
+
+#. module: memento
+#: code:addons/memento/models/room.py:0
+#, python-format
+msgid "Transitioning from %s to %s is not allowd"
+msgstr "No se permite la transición de %s a %s"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__category
+msgid "plan"
+msgstr "plan"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__hired_services
+msgid "services"
+msgstr "servicios"
+
+#. module: memento
+#: model:ir.model.fields,field_description:memento.field_memento_client_info__state
+msgid "state"
+msgstr "estado"

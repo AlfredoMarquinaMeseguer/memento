@@ -17,6 +17,7 @@ class Room(models.Model):
     DIRTY = 'dirty'
     MAINTENANCE = 'maintenance'
 
+    name = fields.Char(required=True, string="Name")
     room_number = fields.Integer('Room number')
     state = fields.Selection(
         [(FREE, 'Free'),
@@ -29,7 +30,7 @@ class Room(models.Model):
     )
     booking = fields.One2many(
         'memento.client.info',
-        'room',
+        'room_id',
         string='Bookings'
     )
 

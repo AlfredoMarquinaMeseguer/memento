@@ -63,7 +63,7 @@ class ClientInfo(models.Model):
     
     required_documents = fields.One2many(
         'memento.document',
-        'client_documents',
+        'client',
         string='Required Documents',
         ondelete='restrict',
         index=True
@@ -154,18 +154,12 @@ class ClientInfo(models.Model):
 
 
 class ResPartner(models.Model):
-    """Representante del cliente
+    _inherit = 'res.partner'
 
-    """
-    _inherits = 'res.partner'
-    _description = "Client representative"
-
-    
     represented_client = fields.Many2many(
         'memento.client.info',
-        string='Represented Client',
+        string='Represented Client'
     )
-
 
 class Document(models.Model):
 

@@ -2,13 +2,13 @@
 <odoo>
 
     <record id='client_info_action' model='ir.actions.act_window'>
-        <field name="name">Client Info</field>
+        <field name="name">Thanatory Clients</field>
         <field name="res_model">memento.client.info</field>
-        <field name="view_mode">kanban,tree,form,calendar</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id='thanatory_book_calendar_action' model='ir.actions.act_window'>
-        <field name="name">Thanatory Clients</field>
+        <field name="name">Bookings</field>
         <field name="res_model">memento.client.info</field>
         <field name="view_mode">calendar</field>
     </record>
@@ -104,6 +104,9 @@
             <tree>
                 <field name="name"/>
                 <field name="state"/>
+                <field name="category"/>
+                <field name="hired_services"/>
+                <field name="representative_id"/>
             </tree>
         </field>
     </record>
