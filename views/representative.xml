@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- Partners Extension -->
+
+    <record id='view_partner_representative' model="ir.ui.view">
+        <field name="name">Representative</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <page name="internal_notes" position="before">
+                <page name="client_info" string="Client Info">
+                <group>
+                    <field name="represented_client"/>
+                    <field name="required_documents"/>
+                </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+  </data>
+</odoo>

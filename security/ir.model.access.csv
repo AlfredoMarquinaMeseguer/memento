@@ -3,5 +3,7 @@ acl_client_info,memento.client.info_default,model_memento_client_info,,1,0,0,0
 acl_client_info_administrative,memento.client.info_administrative,model_memento_client_info,group_administrative,1,1,1,1
 acl_client_representative,memento.client.representative_default,model_memento_client_representative,,1,0,0,0
 acl_client_representative_administrative,memento.client.representative_administrative,model_memento_client_representative,group_administrative,1,1,1,1
+acl_document,memento.document_default,model_memento_document,,1,0,0,0
+acl_document,memento.document_administrative,model_memento_document,group_administrative,1,1,1,1
 acl_room,memento.room_default,model_memento_room,,1,0,0,0
 acl_room_administrative,memento.room_administrative,model_memento_room,group_administrative,1,1,1,1

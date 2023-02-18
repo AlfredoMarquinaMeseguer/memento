@@ -42,7 +42,6 @@ class ClientInfo(models.Model):
         default=COLLECT
     )
 
-    # Borrar si se vuelve muy complicado
     hired_services = fields.Many2many(
         'product.product',
         string='services',
@@ -50,26 +49,31 @@ class ClientInfo(models.Model):
         index=True
     )
 
-    representative = fields.One2many(
-        'memento.client.representative',
-        'represented_client',
-        string='representative',
-        ondelete='restrict',
-        required=True,
-        index=True
+    representative_id = fields.Many2many(
+        'res.partner',
+        string='Representative'
     )
 
-    room = fields.Many2one(
+    room_id = fields.Many2one(
         'memento.room',
         string='Room',
         ondelete='restrict',
         index=True
     )
+    
+    required_documents = fields.One2many(
+        'memento.document',
+        'client_documents',
+        string='Required Documents',
+        ondelete='restrict',
+        index=True
+    )
+    
     start_booking = fields.Datetime('Beginning of the Booking')
     end_booking = fields.Datetime('End of the Booking')
 
     @api.model
-    def allow_transition(self, current_state: str, new_state: str) -> bool:
+    def is_allowed_transition(self, current_state: str, new_state: str) -> bool:
         """Establishes the allowed transitons between states
 
         :param self: object self
@@ -149,27 +153,17 @@ class ClientInfo(models.Model):
         self.change_state(ClientInfo.SHIPPED)
 
 
-class Representative(models.Model):
+class ResPartner(models.Model):
     """Representante del cliente
 
     """
-    _name = 'memento.client.representative'
-    _inherits = {'res.partner': 'partner_id'}
+    _inherits = 'res.partner'
     _description = "Client representative"
 
-    required_documents = fields.One2many(
-        'memento.document',
-        'client_documents',
-        string='Required Documents',
-        ondelete='restrict',
-        index=True
-    )
-    represented_client = fields.Many2one(
+    
+    represented_client = fields.Many2many(
         'memento.client.info',
         string='Represented Client',
-        ondelete='restrict',
-        required=True,
-        index=True
     )
 
 
@@ -178,9 +172,12 @@ class Document(models.Model):
     _name = 'memento.document'
     _description = 'Documents related'
 
-    name = fields.Char('Document Name')
-
-    client_documents = fields.Many2one(
-        'memento.document',
-        string='Document'
+    name = fields.Char('Document Name', required=True)
+    client = fields.Many2one(
+        'memento.client.info',
+        string='Required Documents',
+        ondelete='restrict',
+        index=True
     )
+    description = fields.Text('Document Description')
+    route = fields.Text('Route To Document File')
