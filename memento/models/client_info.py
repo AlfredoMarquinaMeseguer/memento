@@ -5,11 +5,14 @@ from odoo.tools.translate import _
 
 
 class ClientInfo(models.Model):
+    
+    """Client Info
+
+    :raises UserError: when trying an illegal transition of state 
+    """    
     _name = 'memento.client.info'
     _description = 'Client Info'
 
-    """Constants
-    """
     COLLECT = 'to_collect'
     PRE_THANATOS = 'pre_thanatos'
     IN_THANATOS = 'in_thanatos'
@@ -17,7 +20,8 @@ class ClientInfo(models.Model):
     IN_ROOM = 'in_room'
     TO_SHIP = 'to_ship'
     SHIPPED = 'shipped'
-
+    
+    
     name = fields.Char(required=True, string="Name")
 
     thantopraxy_notes = fields.Text('Information for the thanatopraxor')
@@ -29,7 +33,6 @@ class ClientInfo(models.Model):
         'plan',
         default='base'
     )
-
     state = fields.Selection(
         [(COLLECT, 'To Collect'),
          (PRE_THANATOS, 'Awaiting Thanatopraxy'),
@@ -41,26 +44,22 @@ class ClientInfo(models.Model):
         'state',
         default=COLLECT
     )
-
     hired_services = fields.Many2many(
         'product.product',
         string='services',
         ondelete='restrict',
         index=True
     )
-
     representative_id = fields.Many2many(
         'res.partner',
         string='Representative'
     )
-
     room_id = fields.Many2one(
         'memento.room',
         string='Room',
         ondelete='restrict',
         index=True
     )
-    
     required_documents = fields.One2many(
         'memento.document',
         'client',
@@ -68,7 +67,6 @@ class ClientInfo(models.Model):
         ondelete='restrict',
         index=True
     )
-    
     start_booking = fields.Datetime('Beginning of the Booking')
     end_booking = fields.Datetime('End of the Booking')
 
@@ -76,12 +74,10 @@ class ClientInfo(models.Model):
     def is_allowed_transition(self, current_state: str, new_state: str) -> bool:
         """Establishes the allowed transitons between states
 
-        :param self: object self
-        :type self: clientInfo object
         :param current_state: state to transition from
         :type current_satate: str
         :param new_state: state to transition to
-        :type new_satate: str
+        :type new_state: str
 
         :returns: whether the transition is allowed or not
         :rtype: bool"""
@@ -100,7 +96,7 @@ class ClientInfo(models.Model):
     def change_state(self, new_state):
         """Changes the current state of self to a new_state if allowed
 
-        Method used by
+        :raises UserError: if transition illegal
         """
         for body in self:
             if body.is_allowed_transition(body.state, new_state):
@@ -110,7 +106,7 @@ class ClientInfo(models.Model):
                     body.state, new_state)
                 raise UserError(message)
 
-    def collect(self):
+    def collect(self):        
         """Changes the state of the client to PRE_THANATOS
 
         Used when the body has already arrived to the thanatory-funerary.
@@ -154,12 +150,22 @@ class ClientInfo(models.Model):
 
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
+    """_summary_
 
+    :param models: _description_
+    :type models: _type_
+    """
+      
+    """_summary_
+    """      
+    _inherit = 'res.partner'
+    """_summary_
+    """
     represented_client = fields.Many2many(
         'memento.client.info',
         string='Represented Client'
     )
+
 
 class Document(models.Model):
 
