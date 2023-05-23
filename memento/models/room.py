@@ -79,6 +79,7 @@ class Room(models.Model):
         If allowed reassings the state of the room to the new state. If not allowed raises an UserError
         :raises UserError: illegal transition 
         """
+        
         allowed = [(Room.FREE, Room.BOOKED),
                    (Room.FREE, Room.OCCUPIED),
                    (Room.FREE, Room.MAINTENANCE),
@@ -102,6 +103,7 @@ class Room(models.Model):
         :type new_state: str
         :raises UserError: illegal transition 
         """
+        
         for room in self:
             if room.is_allowed_transition(room.state, new_state):
                 room.state = new_state
